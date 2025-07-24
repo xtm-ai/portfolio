@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting to Figma Presentation</title>
+  <meta http-equiv="refresh" content="1; url=https://www.figma.com/deck/805g407StTikGcb38NgZ1f/Taohid-Miah-Portfolio?node-id=141-68&t=oYfENutuczFODczx-1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #141414;
+      color: white;
+      font-family: "Helvetica Neue", Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .message {
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 100%;
+    }
+
+    .message a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wave {
+      width: 2.5rem;
+      height: auto;
+      vertical-align: middle;
+      display: inline-block;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .wave:hover {
+      animation: waveMotion 1s ease-in-out infinite;
+    }
+
+    @keyframes waveMotion {
+      0%   { transform: rotate(0deg); }
+      15%  { transform: rotate(14deg); }
+      30%  { transform: rotate(-8deg); }
+      45%  { transform: rotate(14deg); }
+      60%  { transform: rotate(-4deg); }
+      75%  { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .fallback {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #ffffff;
+      display: none;
+    }
+
+    .fallback a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="message">
+    <a href="https://www.figma.com/deck/805g407StTikGcb38NgZ1f/Taohid-Miah-Portfolio?node-id=141-68&t=oYfENutuczFODczx-1">
+      Hey! <img src="/mnt/data/Wave.png" alt="Waving hand" class="wave"><br>
+      Here’s a look at my portfolio.
+    </a>
+  </div>
+
+  <div class="fallback" id="fallback">
+    If you are not redirected automatically, <a href="https://www.figma.com/deck/805g407StTikGcb38NgZ1f/Taohid-Miah-Portfolio?node-id=141-68&t=oYfENutuczFODczx-1">click here</a>.
+  </div>
+
+  <footer>
+    <a href="mailto:hello@taohid.co.uk">hello@taohid.co.uk</a>
+  </footer>
+
+  <script>
+    // Show fallback link after 5 seconds
+    setTimeout(() => {
+      document.getElementById('fallback').style.display = 'block';
+    }, 5000);
+  </script>
+
+</body>
+</html>
