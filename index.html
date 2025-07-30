@@ -2,105 +2,260 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Redirecting to Figma Presentation</title>
-  <meta http-equiv="refresh" content="1; url=https://www.figma.com/deck/805g407StTikGcb38NgZ1f/Taohid-Miah-Portfolio?node-id=141-68&t=oYfENutuczFODczx-1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Italian-Bengali graphic designer in London specialising in branding and communication design." />
+  <title>Taohid Miah – Graphic Designer</title>
   <style>
-    html, body {
+    :root {
+      --bg: #141414;
+      --text: #ffffff;
+      --accent: #D6FE51;
+    }
+
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
       height: 100%;
-      background-color: #141414;
-      color: white;
-      font-family: "Helvetica Neue", Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Helvetica', sans-serif;
+    }
+
+    .container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
+      height: 100vh;
+      padding: 2rem;
+      position: relative;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      text-align: center;
+      width: 100%;
     }
 
-    .message {
-      font-size: 2rem;
-      font-weight: 300;
-      line-height: 1.6;
-      max-width: 100%;
+    .header-left, .header-center, .header-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
     }
 
-    .message a {
-      color: inherit;
+    .header-left {
+      justify-content: flex-start;
+    }
+
+    .header-center {
+      justify-content: center;
+    }
+
+    .header-right {
+      justify-content: flex-end;
+    }
+
+    .logo img {
+      height: 16px;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .top-cta {
+      font-size: 16px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+    }
+
+    .top-cta a {
+      color: var(--text);
       text-decoration: none;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s ease;
     }
 
-    .wave {
-      width: 2.5rem;
-      height: auto;
-      vertical-align: middle;
-      display: inline-block;
-      transition: transform 0.2s ease-in-out;
+    .top-cta a:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
     }
 
-    .wave:hover {
-      animation: waveMotion 1s ease-in-out infinite;
+    .top-cta a:active {
+      transform: scale(0.95);
     }
 
-    @keyframes waveMotion {
-      0%   { transform: rotate(0deg); }
-      15%  { transform: rotate(14deg); }
-      30%  { transform: rotate(-8deg); }
-      45%  { transform: rotate(14deg); }
-      60%  { transform: rotate(-4deg); }
-      75%  { transform: rotate(10deg); }
-      100% { transform: rotate(0deg); }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    h1 {
+      font-size: 36px;
+      line-height: 1.4;
+      max-width: 900px;
+      margin: 6rem auto 2.5rem;
+      font-weight: 400;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 20px;
+      padding: 0.5rem 1.6rem;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      text-align: center;
+      color: var(--text);
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease;
+      box-shadow: 0 0 10px rgba(214, 254, 81, 0);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .buttons a span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: inherit;
+    }
+
+    .buttons a:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 20px rgba(214, 254, 81, 0.6);
+    }
+
+    .buttons a:active {
+      transform: scale(0.95);
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: row;
+      gap: 0.8rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+
+    .social-icons a:active {
+      transform: scale(0.95);
+    }
+
+    .social-icons img {
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #ffffff;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.7;
+      margin-top: 2rem;
     }
 
-    footer a {
-      color: inherit;
-      text-decoration: none;
-    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.4rem;
+        padding: 0 1rem;
+        margin-top: 3rem;
+      }
 
-    .fallback {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #ffffff;
-      display: none;
-    }
+      .buttons a {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.4rem;
+      }
 
-    .fallback a {
-      color: inherit;
-      text-decoration: underline;
+      .social-icons img {
+        width: 18px;
+        height: 18px;
+      }
+
+      .top-cta a span {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <div class="social-icons">
+          <a href="https://www.instagram.com/taohid.miah" target="_blank"><img src="instagram.svg" alt="Instagram" /></a>
+          <a href="https://www.linkedin.com/in/taohid/" target="_blank"><img src="linkedin.svg" alt="LinkedIn" /></a>
+        </div>
+      </div>
+      <div class="header-center">
+        <div class="logo">
+          <a href="/">
+            <img src="TM.svg" alt="TM Logo" height="16">
+          </a>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="top-cta">
+          <a href="mailto:hello@taohid.co.uk">
+            <img src="open-mailbox-with-raised-flag.png" alt="Mail Icon" width="20" height="20" style="pointer-events: none; user-select: none; -webkit-user-drag: none;" />
+            <span>Get in touch</span>
+          </a>
+        </div>
+      </div>
+    </header>
 
-  <div class="message">
-    <a href="https://www.figma.com/deck/805g407StTikGcb38NgZ1f/Taohid-Miah-Portfolio?node-id=141-68&t=oYfENutuczFODczx-1">
-      Hey! <img src="Wave.png" alt="Waving hand" class="wave"><br>
-      Here’s a look at my portfolio.
-    </a>
+    <main>
+      <h1>
+        Italian–Bengali graphic designer based in London, specialising in branding and communication design.
+      </h1>
+
+      <div class="buttons">
+        <a href="https://www.figma.com/deck/805g407StTikGcb38NgZ1f/Taohid-Miah-Portfolio?node-id=141-68&t=oYfENutuczFODczx-1" target="_blank">
+          <span><span>View portfolio</span> <img src="eyes.png" alt="eyes emoji" width="20" height="20" style="pointer-events: none; user-select: none; -webkit-user-drag: none;" /></span>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      © 2025 Taohid Miah
+    </footer>
   </div>
-
-  <div class="fallback" id="fallback">
-    If you are not redirected automatically, <a href="https://www.figma.com/deck/805g407StTikGcb38NgZ1f/Taohid-Miah-Portfolio?node-id=141-68&t=oYfENutuczFODczx-1">click here</a>.
-  </div>
-
-  <footer>
-    <a href="mailto:hello@taohid.co.uk">hello@taohid.co.uk</a>
-  </footer>
-
-  <script>
-    // Show fallback link after 5 seconds
-    setTimeout(() => {
-      document.getElementById('fallback').style.display = 'block';
-    }, 5000);
-  </script>
-
 </body>
 </html>
