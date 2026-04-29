@@ -2,261 +2,377 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Italian-Bengali graphic designer in London specialising in branding and communication design." />
-  <title>Taohid Miah – Graphic Designer</title>
-  <link rel="icon" href="TM_Favicon.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Taohid Miah</title>
   <style>
-    :root {
-      --bg: #141414;
-      --text: #ffffff;
-      --accent: #D6FE51;
+    @font-face {
+      font-family: 'Brier';
+      src: url('Brier-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
     }
+    @import url('https://fonts.cdnfonts.com/css/mona-sans');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:    #141414;
+      --cream: #E9E0D5;
+      --brier: 'Brier', Georgia, serif;
+      --mona:  'Mona Sans', 'Helvetica Neue', sans-serif;
     }
 
     html, body {
-      height: 100%;
+      width: 100%; height: 100%;
+      overflow: hidden;
       background: var(--bg);
-      color: var(--text);
-      font-family: 'Helvetica', sans-serif;
+      color: var(--cream);
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .stage {
+      width: 100vw;
       height: 100vh;
-      padding: 2rem;
-      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
+
+    .canvas {
+      position: relative;
+      width:  min(100vw, 1920px);
+      height: min(100vh, 1080px);
+      overflow: hidden;
+    }
+
+    /* ── DESKTOP ≥ 1240px ── */
 
     header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
       display: flex;
+      align-items: flex-start;
       justify-content: space-between;
+      padding: clamp(24px, 3.704vh, 40px) clamp(30px, 3.125vw, 60px) 0;
+      z-index: 30;
+    }
+
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3em;
+      font-size: clamp(16px, 1.667vw, 32px);
+      line-height: 1;
+    }
+    .logo-first { font-family: var(--mona); font-weight: 600; }
+    .logo-last  { font-family: var(--brier); font-weight: 700; }
+
+    nav {
+      display: flex;
       align-items: center;
+      gap: clamp(14px, 1.82vw, 35px);
+      margin-top: clamp(2px, 0.37vh, 4px);
+    }
+    nav a {
+      font-family: var(--mona);
+      font-weight: 400;
+      font-size: clamp(10px, 0.833vw, 16px);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 1; }
+
+    .hero {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
       width: 100%;
-    }
-
-    .header-left, .header-center, .header-right {
-      flex: 1;
-      display: flex;
-      align-items: center;
-    }
-
-    .header-left {
-      justify-content: flex-start;
-    }
-
-    .header-center {
-      justify-content: center;
-    }
-
-    .header-right {
-      justify-content: flex-end;
-    }
-
-    .logo img {
-      height: 16px;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-
-    .top-cta {
-      font-size: 16px;
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-    }
-
-    .top-cta a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: all 0.3s ease;
-    }
-
-    .top-cta a:hover {
-      opacity: 0.8;
-      transform: scale(1.05);
-    }
-
-    .top-cta a:active {
-      transform: scale(0.95);
-    }
-
-    main {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
-      flex-grow: 1;
+      z-index: 20;
     }
 
-    h1 {
-      font-size: 36px;
-      line-height: 1.4;
-      max-width: 900px;
-      margin: 6rem auto 2.5rem;
+    .hero-title {
+      font-family: var(--brier);
+      font-weight: 700;
+      font-size: clamp(56px, 9.375vw, 180px);
+      line-height: 0.91;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .hero-sub {
+      font-family: var(--mona);
       font-weight: 400;
+      font-size: clamp(10px, 0.833vw, 16px);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.7;
+      margin-top: clamp(16px, 2.13vh, 23px);
     }
 
-    .buttons {
-      display: flex;
-      flex-direction: column;
+    .sub-break { display: none; }
+    @media (max-width: 1500px) and (min-width: 1240px) {
+      .sub-break { display: inline; }
+    }
+
+    .btn-work {
+      display: inline-flex;
       align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .buttons a {
+      justify-content: center;
+      margin-top: clamp(18px, 3.24vh, 35px);
+      width:  clamp(160px, 14.583vw, 280px);
+      height: clamp(42px, 5.926vh, 64px);
+      background: var(--cream);
+      color: var(--bg);
+      border: none;
+      border-radius: 10px;
+      font-family: var(--mona);
+      font-weight: 700;
+      font-size: clamp(16px, 1.667vw, 32px);
+      letter-spacing: 0.01em;
+      cursor: pointer;
       text-decoration: none;
-      font-weight: 400;
-      font-size: 20px;
-      padding: 0.5rem 1.6rem;
-      border-radius: 999px;
-      letter-spacing: 0.03em;
-      text-align: center;
-      color: var(--text);
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.2s ease;
-      box-shadow: 0 0 10px rgba(214, 254, 81, 0);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
     }
+    .btn-work:hover { background: #fff; transform: scale(1.025); }
 
-    .buttons a span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: inherit;
-    }
-
-    .buttons a:hover {
-      transform: scale(1.05);
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 20px rgba(214, 254, 81, 0.6);
-    }
-
-    .buttons a:active {
-      transform: scale(0.95);
-    }
-
-    .social-icons {
-      display: flex;
-      flex-direction: row;
-      gap: 0.8rem;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .social-icons a {
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      display: flex;
-      align-items: center;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.2);
-      opacity: 0.8;
-    }
-
-    .social-icons a:active {
-      transform: scale(0.95);
-    }
-
-    .social-icons img {
-      width: 20px;
-      height: 20px;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
+    .mob-btn { display: none; }
 
     footer {
+      position: absolute;
+      bottom: clamp(16px, 5.648vh, 61px);
+      left: 0; right: 0;
       text-align: center;
-      font-size: 14px;
+      font-family: var(--mona);
       font-weight: 400;
-      opacity: 0.7;
-      margin-top: 2rem;
+      font-size: clamp(10px, 0.833vw, 16px);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.45;
+      z-index: 30;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.4rem;
-        padding: 0 1rem;
-        margin-top: 3rem;
+    .img-card {
+      position: absolute;
+      width: clamp(100px, 13.02vw, 250px);
+      aspect-ratio: 5 / 7;
+      border-radius: clamp(7px, 0.78vw, 15px);
+      overflow: hidden;
+      z-index: 10;
+    }
+    .img-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .img-1 { left:  clamp(24px,   6.04vw,  116px); top:    clamp(70px,  11.76vh, 127px); }
+    .img-2 { right: clamp(-36px, -1.875vw, -10px);  top:    clamp(90px,  25.46vh, 275px); }
+    .img-3 { left:  clamp(-45px, -2.344vw, -12px);  top:    clamp(220px, 56.2vh,  607px); }
+    .img-4 { right: clamp(50px,   7.5vw,   144px);  bottom: clamp(-80px, -7.4vh, -40px); }
+
+    .mob-img-row { display: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    header      { animation: fadeIn 0.6s       ease both; }
+    .img-card   { animation: fadeIn 0.9s 0.08s ease both; }
+    .mob-card   { animation: fadeIn 0.9s 0.08s ease both; }
+    .hero-title { animation: fadeUp 1.0s 0.20s ease both; }
+    .hero-sub   { animation: fadeUp 1.0s 0.36s ease both; }
+    footer      { animation: fadeIn 1.0s 0.60s ease both; }
+
+    /* ── MOBILE / TABLET ≤ 1239px ── */
+    @media (max-width: 1239px) {
+
+      .canvas {
+        width:  100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: clamp(22px, 3.5vh, 36px) 0 clamp(14px, 2.2vh, 24px);
+        overflow: hidden;
       }
 
-      .buttons a {
-        font-size: 0.95rem;
-        padding: 0.6rem 1.4rem;
+      .img-card { display: none; }
+      .btn-work { display: none; }
+
+      header {
+        position: static;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 24px;
+        gap: 0;
+        flex-shrink: 0;
       }
 
-      .social-icons img {
-        width: 18px;
-        height: 18px;
+      .logo {
+        font-size: clamp(18px, 3.5vw, 22px);
+        justify-content: center;
       }
 
-      .top-cta a span {
-        display: none;
+      nav {
+        margin-top: clamp(10px, 1.6vh, 14px);
+        gap: clamp(14px, 3.5vw, 24px);
+        margin-right: 0;
       }
+      nav a { font-size: clamp(10px, 1.8vw, 12px); }
+
+      .hero {
+        position: static;
+        transform: none;
+        width: 100%;
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        z-index: auto;
+        flex-shrink: 0;
+      }
+
+      .hero-title { font-size: clamp(48px, 10vw, 70px); line-height: 0.88; }
+
+      .hero-sub {
+        font-size: clamp(10px, 1.8vw, 12px);
+        letter-spacing: 0.07em;
+        margin-top: clamp(10px, 1.6vh, 14px);
+        white-space: normal;
+      }
+
+      .sub-break { display: none !important; }
+
+      /* Image row: three cards fully visible, centred, 40px gap.
+         Cards only bleed if the combined row width exceeds the viewport.
+         No overflow:hidden on this row — viewport edge is the only crop. */
+      .mob-img-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+        flex-shrink: 0;
+      }
+
+      .mob-card {
+        flex: 0 0 clamp(120px, 32vw, 170px);
+        width: clamp(120px, 32vw, 170px);
+        aspect-ratio: 5 / 7;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      /* Centre card nudged 40px down */
+      .mob-card.centre { margin-top: 40px; }
+
+      .mob-card img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      .mob-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width:  clamp(160px, 49.75vw, 200px);
+        height: clamp(38px, 5.04vh, 44px);
+        background: var(--cream);
+        color: var(--bg);
+        border: none;
+        border-radius: 10px;
+        font-family: var(--mona);
+        font-weight: 700;
+        font-size: clamp(16px, 4vw, 22px);
+        letter-spacing: 0.01em;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s, transform 0.15s;
+      }
+      .mob-btn:hover { background: #fff; transform: scale(1.025); }
+
+      footer {
+        position: static;
+        font-size: clamp(9px, 1.8vw, 11px);
+        text-align: center;
+        width: 100%;
+        flex-shrink: 0;
+      }
+
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+<div class="stage">
+  <div class="canvas">
+
     <header>
-      <div class="header-left">
-        <div class="social-icons">
-          <a href="https://www.instagram.com/taohid.miah" target="_blank"><img src="instagram.svg" alt="Instagram" /></a>
-          <a href="https://www.linkedin.com/in/taohid/" target="_blank"><img src="linkedin.svg" alt="LinkedIn" /></a>
-        </div>
+      <div class="logo">
+        <span class="logo-first">TAOHID</span>
+        <span class="logo-last">MIAH</span>
       </div>
-      <div class="header-center">
-        <div class="logo">
-          <a href="/">
-            <img src="TM.svg" alt="TM Logo" height="16">
-          </a>
-        </div>
-      </div>
-      <div class="header-right">
-        <div class="top-cta">
-          <a href="mailto:hello@taohid.co.uk">
-            <img src="open-mailbox-with-raised-flag.png" alt="Mail Icon" width="20" height="20" style="pointer-events: none; user-select: none; -webkit-user-drag: none;" />
-            <span>Get in touch</span>
-          </a>
-        </div>
-      </div>
+      <nav>
+        <a href="mailto:hello@taohid.co.uk">EMAIL</a>
+        <a href="https://www.instagram.com/taohid.miah/" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.linkedin.com/in/taohid/" target="_blank" rel="noopener">LINKEDIN</a>
+      </nav>
     </header>
 
-    <main>
-      <h1>
-        Italian–Bengali graphic designer based in London, specialising in branding and communication design.
+    <div class="img-card img-1"><img src="Project_1.png" alt="Project 1" /></div>
+    <div class="img-card img-2"><img src="Project_2.png" alt="Project 2" /></div>
+    <div class="img-card img-3"><img src="Project_3.png" alt="Project 3" /></div>
+    <div class="img-card img-4"><img src="Project_4.png" alt="Project 4" /></div>
+
+    <div class="hero">
+      <h1 class="hero-title">
+        DESIGNING<br>
+        BRANDS<br>
+        BETWEEN<br>
+        CULTURES
       </h1>
+      <p class="hero-sub">
+        Italian-Bengali Brand &amp; <span class="sub-break"><br></span>Communication Designer based in London.
+      </p>
+      <a href="https://www.figma.com/deck/O8xIZTna12qmbbE6vW0EHT/Taohid-Miah-Portfolio?node-id=141-68&t=iCwIvoTmrvC6SqLP-1" target="_blank" rel="noopener" class="btn-work">VIEW WORK</a>
+    </div>
 
-      <div class="buttons">
-        <a href="https://www.figma.com/deck/O8xIZTna12qmbbE6vW0EHT/Taohid-Miah-Portfolio?node-id=141-68&t=iCwIvoTmrvC6SqLP-1" target="_blank">
-          <span><span>View portfolio</span> <img src="eyes.png" alt="eyes emoji" width="20" height="20" style="pointer-events: none; user-select: none; -webkit-user-drag: none;" /></span>
-        </a>
-      </div>
-    </main>
+    <div class="mob-img-row">
+      <div class="mob-card"><img src="Project_3.png" alt="Project 3" /></div>
+      <div class="mob-card centre"><img src="Project_1.png" alt="Project 1" /></div>
+      <div class="mob-card"><img src="Project_2.png" alt="Project 2" /></div>
+    </div>
 
-    <footer>
-      © 2025 Taohid Miah
-    </footer>
+    <a href="https://www.figma.com/deck/O8xIZTna12qmbbE6vW0EHT/Taohid-Miah-Portfolio?node-id=141-68&t=iCwIvoTmrvC6SqLP-1" target="_blank" rel="noopener" class="mob-btn">VIEW WORK</a>
+
+    <footer>© 2026 Taohid Miah</footer>
+
   </div>
+</div>
+
 </body>
 </html>
